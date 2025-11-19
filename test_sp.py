@@ -4,9 +4,6 @@
 ###
 
 import simple_package.operations as sp
-import simple_package.statistics as stats
-import simple_package.graphics as gfx
-import numpy as np
 
 if __name__ == '__main__':
     ## Define two numbers
@@ -17,9 +14,4 @@ if __name__ == '__main__':
     print(f"The sum of {a} and {b} is {a + b}")
 
     ## Now do the same for the function in sp
-    print(f"The product of {a} and {b} is {sp.add(a,b)}")
-
-x = np.random.normal(loc=0.0, scale=1.0, size=1000)
-
-stats.find_stats(x)
-gfx.plot_histogram(x, bins=30)
+    print(f"The sum of {a} and {b} is {sp.add(a,b)}")
