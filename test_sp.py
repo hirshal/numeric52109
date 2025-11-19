@@ -3,7 +3,7 @@
 ## Execute as 'python test_sp.py'
 ###
 
-import simple_package as sp
+import simple_package.operations as sp
 
 if __name__ == '__main__':
     ## Define two numbers
