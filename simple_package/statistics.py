@@ -26,10 +26,15 @@
 import numpy as np
 
 
-def find_mean(data):
-    """Calculate the mean of the data."""
+def find_stats(data):
+    """Calculate the mean, median and standard deviation of the data."""
     
     # Check if input is a list, convert to numpy array if so
+    try:
+        import numpy as np
+    except ImportError:
+        print("Error: numpy is not installed. Please install numpy to use this function.")
+
     try:
         if isinstance(data, list):
             data = np.array(data)
@@ -37,48 +42,17 @@ def find_mean(data):
             raise TypeError("Input data must be a list or numpy array.")
 
         mean_value = np.mean(data)
-        print(f"The mean of the data is: {mean_value:.3f}")
-        return mean_value
-    except NameError:
-        print("Error: numpy is not installed. Please install numpy to use this function.")
-        return None
-
-
-def find_median(data):
-    """Calculate the median of the data."""
-
-    # Check if input is a list, convert to numpy array if so
-    try:
-        if isinstance(data, list):
-            data = np.array(data)
-        elif not isinstance(data, np.ndarray):
-            raise TypeError("Input data must be a list or numpy array.")
-
         median_value = np.median(data)
-        print(f"The median of the data is: {median_value:.3f}")
-        return median_value
-    except NameError:
-        print("Error: numpy is not installed. Please install numpy to use this function.")
-        return None
-
-def find_std(data):
-    """Calculate the standard deviation of the data."""
-
-    # Check if input is a list, convert to numpy array if so
-    try:
-        if isinstance(data, list):
-            data = np.array(data)
-        elif not isinstance(data, np.ndarray):
-            raise TypeError("Input data must be a list or numpy array.")
-
         std_value = np.std(data)
+        print(f"The mean of the data is: {mean_value:.3f}")
+        print(f"The median of the data is: {median_value:.3f}")
         print(f"The standard deviation of the data is: {std_value:.3f}")
-        return std_value
+        return mean_value, median_value, std_value
+    
     except NameError:
-        print("Error: numpy is not installed. Please install numpy to use this function.")
-        return None
+        print("Error: Unable to compute mean due to invalid data.")
+    except TypeError as te:
+        print(f"Type Error: {te}")
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
 
-x = [1, 2, 3, 4, 5]
-find_mean(x)
-find_median(x)
-find_std(x)

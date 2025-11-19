@@ -3,7 +3,7 @@ def plot_histogram(data, bins=10):
     try:
         import numpy as np
         import matplotlib.pyplot as plt
-    except ImportError as e:
+    except ImportError:
         print("Error: Required packages are not installed. Please install numpy and matplotlib to use this function.")
         return
 
@@ -25,4 +25,5 @@ def plot_histogram(data, bins=10):
     plt.legend()
     plt.show()
     return None
+
 
