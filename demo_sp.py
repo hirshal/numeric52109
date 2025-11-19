@@ -4,8 +4,19 @@ import simple_package.operations as sp
 import simple_package.statistics as stats
 import simple_package.graphics as gfx
 
-x = np.random.normal(loc=0.0, scale=1.0, size=1000)
-stats.find_stats(x)
-gfx.plot_histogram(x, bins=30)
+if __name__ == '__main__':
+    ## Define two numbers
+    a = 1
+    b = 2
+    
+    ## Print their sum with a nice message.
+    print(f"The sum of {a} and {b} is {a + b}")
 
-sp.calculator()
+    ## Now do the same for the function in sp
+    print(f"The sum of {a} and {b} is {sp.add(a,b)}")
+
+    x = np.random.normal(loc=0.0, scale=1.0, size=1000)
+
+    stats.find_stats(x)
+    gfx.plot_histogram(x, bins=30)
+    sp.calculator()
